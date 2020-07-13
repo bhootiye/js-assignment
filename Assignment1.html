@@ -1,0 +1,34 @@
+<html>
+<head>
+    <title> Assignment 1  </title>
+</head>
+<body>
+    <h1>Current Day and Time </h1>
+    <p id="demo"></p>
+
+    <script>
+     {
+      var d = new Date();
+      var weekday = new Array(7);
+      weekday[0] = "Sunday";
+      weekday[1] = "Monday";
+      weekday[2] = "Tuesday";
+      weekday[3] = "Wednesday";
+      weekday[4] = "Thursday";
+      weekday[5] = "Friday";
+      weekday[6] = "Saturday";
+    
+      var n = weekday[d.getDay()];
+      document.getElementById("demo").innerHTML ="Today is :"+n+".";
+    }
+    </script>
+
+    <p>Current Time: <span id="datetime"></span></p>
+
+    <script>
+    var dt = new Date();
+    document.getElementById("datetime").innerHTML = dt.toLocaleTimeString();
+    </script>
+</body>
+
+</html>

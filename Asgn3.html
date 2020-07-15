@@ -1,0 +1,112 @@
+<html>
+    <head>
+        <title>
+            VAr Let Const Diff
+        </title>
+    </head>
+
+    <Body>
+        <h2>In Javascript one can define variables using the keywords var, let or const.</h2><br>
+        var a=10;<br>
+        let b=20;<br>
+        const PI=3.14;<br>
+        var: The scope of a variable defined with the keyword “var” is limited to the “function” within which it is defined. If it is defined outside any function, the scope of the variable is global.<br>
+        var is “function scoped”.<br>
+        let: The scope of a variable defined with the keyword “let” or “const” is limited to the “block” defined by curly braces i.e. {} .<br>
+        “let” and “const” are“block scoped”.<br>
+        const: The scope of a variable defined with the keyword “const” is limited to the block defined by curly braces. However if a variable is defined with keyword const, it cannot be reassigned.<br>
+        “const” cannot be re-assigned to a new value. However it CAN be mutated.<br>
+        Function scoped vs. Block scoped<br>
+        Let us understand this by some code examples,<br>
+        <h2>Block Scope</h2><br>
+        In Javascript you can define a code block using curly braces i.e {}.<br>
+        Consider the following code that has 2 code blocks each delimited by {}.<br>
+        {<br>
+          var a=10;<br>
+          console.log(a);<br>
+        } //block 1<br>
+        {<br>
+          a++;<br>
+          console.log(a);<br>
+        } //block 2<br>
+        /* Since we are using "var a=10", scope of "a" is limited to the function within which it is defined. In this case it is within the global function scope */<br>
+        In the above example, since we are using the keyword var to define the variable a, the scope of a is limited to the function within which it is defined. Since a is not defined within any function, the scope of the variable a is global, which means that a is recognized within block 2.<br>
+        In effect if a variable is defined with keyword var, Javascript does not recognize the {} as the scope delimiter. Instead the variable must be enclosed within a “function” to limit it’s scope to that function.<br>
+        Let us re-write the code above using the keyword let.<br>
+        The let keyword was introduced as part of ES6 syntax, as an alternative to var to define variables in Javascript.<br>
+        {<br>
+         let a=10;<br>
+         console.log(a);<br>
+        } //block 1<br>
+        {<br>
+          a++;<br>
+          console.log(a);<br>
+        } //block 2<br>
+        /* Since we are using "let a=10", scope of "a" is limited to block 1 and "a" is not recognized in block 2 */<br>
+        Note that now when you run the code above you will get an error, variable a not recognized in block2. This is because we have defined the variable a using the keyword let, which limits the scope of variable a to the code block within which it was defined.<br>
+        <h2>Function Scope</h2><br>
+        In Javascript you limit the scope of a variable by defining it within a function. This is known as function scope.<br>
+        The keyword var is function scoped i.e. it does not recognize curly brackets i.e. {}, as delimiters. Instead it recognizes the function body as the delimiter.<br>
+        If we want to define a variable using var, and prevent it from being defined in the global namespace you can re-write it by enclosing the code blocks within functions.<br>
+        function block1() {<br>
+        var a=10;<br>
+         console.log(a);<br>
+        } //function scope of block 1<br>
+        function block2() {<br>
+          a++;<br>
+          console.log(a);<br>
+        } //function scope of block 2<br>
+        /* Since we have enclosed block1 and block2, within separate functions, the scope of "var a=10", is limited to block 1 and "a" is not recognized in block 2 */<br>
+        The above code is in effect the same as if we were using let a=10 instead of var a=10. The scope of the variable a is limited to the function within which it is defined, and a is no longer in the global namespace.<br>
+        Why would you chose “let” over “var”?<br>
+        While programming in Javascript it is a good practice not to define variables as global variables. This is because it is possible to inadvertently modify the global variable from anywhere within the Javascript code. To prevent this one needs to ensure that the scope of the variables are limited to the code block within which they need to be executed.<br>
+        In the past before keyword let was introduced as part of ES6, to circumvent the issue of variable scoping using var, programmers used the IIFE pattern to prevent the pollution of the global name space. However since the introduction of let, the IIFE pattern is no longer required, and the scope of the variable defined using let is limited to the code block within which it is defined.<br>
+        For more information: What is an IIFE in Javascript?<br>
+        The “const” keyword<br>
+        If a variable is defined using the const keyword, its scope is limited to the block scope. In addition the variable cannot be reassigned to a different value.<br>
+        {<br>
+         const PI=3.14;<br>
+         console.log(PI);<br>
+        } //block 1<br>
+        {<br>
+          console.log(PI);<br>
+        } //block 2<br>
+        /* Since we are using "const PI=3.14", scope of "PI" is limited to block 1 and "PI" is not recognized in block 2 */<br>
+        Note that it is important to understand that const does NOT mean that the value is fixed and immutable. This is a common misunderstanding amongst many Javascript developers, and they incorrectly mentioned that a value defined by the const keyword is immutable (i.e. it cannot be changed).<br>
+        In the following example we can show that the value of the variable defined within the const keyword is mutable, i.e. it can be changed.<br>
+        {<br>
+         const a = [1,2,3];<br>
+         const b = {name: "hello"};<br>
+         a.push(4,5);     //mutating the value of constant "a"<br>
+         b.name="World";  //mutating the value of constant "b"<br>
+         <br>
+         console.log(a); //this will show [1,2,3,4,5]<br>
+         console.log(b); //this will show {name: "World"}<br>
+         <br>
+        }
+        /* This code will run without any errors, and shows that we CAN mutate the values that are defined by "const" */<br>
+        However note that these variables defined by const cannot be re-assigned.<br>
+        {<br>
+         const name = "Mike";<br>
+         const PI = 3.14; <br>
+         const a = [1,2,3];<br>
+         const b = {name: "hello"};<br>
+         <br>
+         name="Joe"; <br>
+        //this will throw an error, since we are attempting to re-assign "name" to a different value.<br>
+         PI = PI + 1; <br>
+        //this will throw an error, since we are attempting to re-assign PI to a different value.<br>
+         a = [1,2,3,4,5];<br>
+        //this will throw an error, since we are attempting to re-assign "a" to a different value.<br>
+         b = {name: "hello"};<br>
+        //this will throw an error, since we are attempting to re-assign "b" to a different value.<br>
+        }<br>
+        <h2>Summary</h2><br>
+        var is functional scope<br>
+        let, const are both BLOCK scope<br>
+        const, cannot be reassigned, however it is mutable<br>
+
+
+
+    </Body>
+</html>

@@ -1,0 +1,201 @@
+<html>
+    <head>
+        <title>Array methods</title>
+    </head>
+<body>
+    <h2>Converting Arrays to Strings</h2><br>
+    The JavaScript method toString() converts an array to a string of (comma separated) array values.<br>
+    <br>
+    Example<br>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+    document.getElementById("demo").innerHTML = fruits.toString();<br>
+    Result:<br>
+    <br>
+    Banana,Orange,Apple,Mango<br>
+    The join() method also joins all array elements into a string.<br>
+    
+    It behaves just like toString(), but in addition you can specify the separator:<br>
+    <br>
+    Example<br>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+    document.getElementById("demo").innerHTML = fruits.join(" * ");<br>
+    Result:<br>
+    <br>
+    Banana * Orange * Apple * Mango<br>
+    <h2>Popping and Pushing</h2><br>
+    When you work with arrays, it is easy to remove elements and add new elements.<br>
+    <br>
+    This is what popping and pushing is:<br>
+    
+    Popping items out of an array, or pushing items into an array.<br>
+    <br>
+    
+    <h2>Popping</h2><br>
+    The pop() method removes the last element from an array:<br>
+    <br>
+    Example<br>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+    fruits.pop();              // Removes the last element ("Mango") from fruits<br>
+    The pop() method returns the value that was "popped out":<br>
+    <br>
+    Example<br>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+    var x = fruits.pop();      // the value of x is "Mango"<br>
+    <h2>Pushing</h2>
+    The push() method adds a new element to an array (at the end):<br>
+    <br>
+    Example<br>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+    fruits.push("Kiwi");       //  Adds a new element ("Kiwi") to fruits<br>
+    The push() method returns the new array length:<br>
+    <br>
+    Example<br>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+    var x = fruits.push("Kiwi");   //  the value of x is 5<br>
+    <h2>Shifting Elements</h2><br>
+    Shifting is equivalent to popping, working on the first element instead of the last.<br>
+    <br>
+    The shift() method removes the first array element and "shifts" all other elements to a lower index.<br>
+    <br>
+    Example<br>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+    fruits.shift();            // Removes the first element "Banana" from fruits<br>
+    The shift() method returns the string that was "shifted out":<br>
+    <br>
+    Example<br>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+    var x = fruits.shift();    // the value of x is "Banana"<br>
+    The unshift() method adds a new element to an array (at the beginning), and "unshifts" older elements:<br>
+    <br>
+    Example<br>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+    fruits.unshift("Lemon");    // Adds a new element "Lemon" to fruits<br>
+    The unshift() method returns the new array length.<br>
+    <br>
+    Example<br>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+    fruits.unshift("Lemon");    // Returns 5<br>
+    <h2>Changing Elements</h2><br>
+    Array elements are accessed using their index number:<br>
+    <br>
+    Array indexes start with 0. [0] is the first array element, [1] is the second, [2] is the third ...<br>
+    <br>
+    Example<br>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+    fruits[0] = "Kiwi";        // Changes the first element of fruits to "Kiwi"<br>
+    The length property provides an easy way to append a new element to an array:<br>
+    <br>
+    Example<br>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+    fruits[fruits.length] = "Kiwi";          // Appends "Kiwi" to fruits<br>
+    Deleting Elements<br>
+    Since JavaScript arrays are objects, elements can be deleted by using the JavaScript operator delete:<br>
+    <br>
+    Example<br>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+    delete fruits[0];           // Changes the first element in fruits to undefined<br>
+    Using delete may leave undefined holes in the array. Use pop() or shift() instead.<br>
+    <br>
+    <h2>Splicing an Array</h2><br>
+    The splice() method can be used to add new items to an array:<br>
+    <br>
+    Example<br>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+    fruits.splice(2, 0, "Lemon", "Kiwi");<br>
+    The first parameter (2) defines the position where new elements should be added (spliced in).<br>
+    <br>
+    The second parameter (0) defines how many elements should be removed.<br>
+    <br>
+    The rest of the parameters ("Lemon" , "Kiwi") define the new elements to be added.
+    <br>
+    The splice() method returns an array with the deleted items:<br>
+    <br>
+    Example<br>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+    fruits.splice(2, 2, "Lemon", "Kiwi");<br>
+    Using splice() to Remove Elements<br>
+    With clever parameter setting, you can use splice() to remove elements without leaving "holes" in the array:<br>
+    <br>
+    Example<br>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+    fruits.splice(0, 1);        // Removes the first element of fruits<br>
+    The first parameter (0) defines the position where new elements should be added (spliced in).<br>
+    <br>
+    The second parameter (1) defines how many elements should be removed.<br>
+    <br>
+    The rest of the parameters are omitted. No new elements will be added.<br>
+    <br>
+    <h2>Merging (Concatenating) Arrays</h2><br>
+    The concat() method creates a new array by merging (concatenating) existing arrays:<br>
+    <br>
+    Example (Merging Two Arrays)<br>
+    var myGirls = ["Cecilie", "Lone"];<br>
+    var myBoys = ["Emil", "Tobias", "Linus"];<br>
+    var myChildren = myGirls.concat(myBoys);   // Concatenates (joins) myGirls and myBoys<br>
+    The concat() method does not change the existing arrays. It always returns a new array.<br>
+    <br>
+    The concat() method can take any number of array arguments:<br>
+    <br>
+    Example (Merging Three Arrays)<br>
+    var arr1 = ["Cecilie", "Lone"];<br>
+    var arr2 = ["Emil", "Tobias", "Linus"];<br>
+    var arr3 = ["Robin", "Morgan"];<br>
+    var myChildren = arr1.concat(arr2, arr3);   // Concatenates arr1 with arr2 and arr3<br>
+    The concat() method can also take strings as arguments:<br>
+    <br>
+    Example (Merging an Array with Values)<br>
+    var arr1 = ["Emil", "Tobias", "Linus"];<br>
+    var myChildren = arr1.concat("Peter"); <br>
+    <h2>Slicing an Array</h2><br>
+    The slice() method slices out a piece of an array into a new array.<br>
+    <br>
+    This example slices out a part of an array starting from array element 1 ("Orange"):<br>
+    <br>
+    Example<br>
+    var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];<br>
+    var citrus = fruits.slice(1);
+    The slice() method creates a new array. It does not remove any elements from the source array.<br>
+    <br>
+    This example slices out a part of an array starting from array element 3 ("Apple"):<br>
+    <br>
+    Example<br>
+    var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];<br>
+    var citrus = fruits.slice(3);<br>
+    The slice() method can take two arguments like slice(1, 3).<br>
+    <br>
+    The method then selects elements from the start argument, and up to (but not including) the end argument.<br>
+    <br>
+    Example<br>
+    var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];<br>
+    var citrus = fruits.slice(1, 3);<br>
+    If the end argument is omitted, like in the first examples, the slice() method slices out the rest of the array.<br>
+    <br>
+    Example<br>
+    var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];<br>
+    var citrus = fruits.slice(2);<br>
+    Automatic toString()<br>
+    JavaScript automatically converts an array to a comma separated string when a primitive value is expected.<br>
+    <br>
+    This is always the case when you try to output an array.<br>
+    <br>
+    These two examples will produce the same result:<br>
+    <br>
+    Example<br>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+    document.getElementById("demo").innerHTML = fruits.toString();<br>
+    Example<br>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+    document.getElementById("demo").innerHTML = fruits;
+
+
+
+    </body>
+
+
+
+
+
+
+
+</html>
+

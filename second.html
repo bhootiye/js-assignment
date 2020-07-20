@@ -1,24 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>User Input and display</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destruct</title>
 </head>
 <body>
-<button id="OS">OS</button>
-<button id="Version">Version</button>
-<p>
-Your OS is <span id="outputOS">____</span>. Version is <span id="outputVersion">____</span>.
-</p>
-<script>
-document.getElementById("OS").onclick = function(){
-	var OS = prompt("Enter your OS");
-  document.getElementById("outputOS").innerText = OS;
-}
 
-document.getElementById("Version").onclick = function(){
-	var Version = prompt("Enter your Version");
-  document.getElementById("outputVersion").innerText = Version;
-}
-</script>
+
+    <script>
+
+        const student = 
+        {
+                name:"Helsinki",
+                age:24,
+                projects:
+                {
+                    dicegame:"two player dice game using JS",
+                },
+        }
+        const { name,age,projects:{dicegame}} = student;
+        console.log(name,age,dicegame);
+    </script>
+    
 </body>
-</html
+</html>

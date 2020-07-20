@@ -1,20 +1,25 @@
-<html>
-  <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spread operator</title>
+</head>
+<body>
+
     <script>
-      var marks = prompt("DataFlair: Enter your marks (out of 500)"); //asks for your marks
-      var percentage = marks / 500 * 100; //calculates percentage
-      if (percentage > 90) {
-        document.write("Your Grade is: A+"); //case1
-      }else if (percentage > 80) {
-        document.write("Your Grade is: A"); //case2
-      }else if (percentage > 70) {
-        document.write("Your Grade is: B"); //case3
-      }else if (percentage > 60) {
-        document.write("Your Grade is: C"); //case4
-      }else if (percentage > 50) {
-        document.write("Your Grade is: D"); //case5
-      }else{
-        document.write("Your Grade is: E"); //case6
-      }
+
+        let shoppinglist=['item1','item2','item3','item4'];
+        let shoppingbasket=shoppinglist;
+
+        shoppinglist.push('Error 404');
+        
+        console.log(shoppinglist);
+        console.log(shoppingbasket);
+
+
+
     </script>
-  </body>
+    
+</body>
+</html>

@@ -3,23 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spread operator</title>
+    <title>Document</title>
 </head>
 <body>
-
     <script>
-
-        let shoppinglist=['item1','item2','item3','item4'];
-        let shoppingbasket=shoppinglist;
-
-        shoppinglist.push('Error 404');
         
-        console.log(shoppinglist);
-        console.log(shoppingbasket);
+    fetch('https://jsonplaceholder.typicode.com/todos/1')
+  .then(response => response.json())
+  .then(json => console.log(json))
 
 
+  let todos = [];
 
-    </script>
-    
+fetch('https://jsonplaceholder.typicode.com/todos?_limit=5')
+      .then(res => res.json())
+      .then(data => todos = data)
+      .catch(err => console.log(err));
+
+      fetch('https://jsonplaceholder.typicode.com/todos/1')
+  .then(response => response.json())
+  .then(json => console.log(json))
+
+  fetch('https://jsonplaceholder.typicode.com/todos/1')
+  .then(response => response.json())
+  .then(json => console.log(json))
+fetch('https://jsonplaceholder.typicode.com/todos/1')
+  .then(response => response.json())
+  .then(json => console.log(json))
+
+
+  var xhr = new XMLHttpRequest();
+xhr.open("GET", "https://reqres.in/api/products/3", true);
+xhr.onload = function(){
+    console.log(xhr.responseText);
+};
+xhr.send();
+</script>
 </body>
 </html>

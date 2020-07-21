@@ -3,25 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Destruct</title>
+    <title>Document</title>
 </head>
 <body>
-
-
     <script>
 
-        const student = 
-        {
-                name:"Helsinki",
-                age:24,
-                projects:
-                {
-                    dicegame:"two player dice game using JS",
-                },
-        }
-        const { name,age,projects:{dicegame}} = student;
-        console.log(name,age,dicegame);
+let arr = [1,2,3,4,5,6];
+
+
+
+arr.forEach((el)=>{
+    console.log(el**3)
+})
+
+
+
+let cube = arr.map(function(el){
+    return el**3;
+})
+
+console.log(cube);
+
+
+//Filter
+
+let odd = arr.filter(el=>el%3==0);
+
+let oddcube = arr.filter(el=>el%3==0).map(el=>el**3);
+
+console.log(odd);
+console.log(oddcube);
+
+let users = [{"user": "👩🏻‍💻"},{"user": "👨🏾‍💻"},{"user": "💃"},{"user": "👨🏻‍🎓"},{"user": "🧑🏻‍🏫"},{"user": "🦸‍♂️"},{"user": "🧟‍♂️"}];
+
+let resultDetails = users.map(user=>{
+    let mark = Math.random()*100;
+    user.mark = mark;
+    return user;
+})
+
+
     </script>
-    
 </body>
 </html>
